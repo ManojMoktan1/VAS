@@ -7,14 +7,19 @@ import { Button } from 'antd';
 import Login from './components/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+
+
+import { AuthProvider } from './contexts';
+
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path='/login' element={<Login />} />
-    
-    </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+      </Routes>
+      </BrowserRouter>
+   </AuthProvider>
 
   );
 }
