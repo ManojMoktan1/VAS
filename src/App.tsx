@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+
 
 import './App.css';
 import 'antd/dist/antd.css';
-import { Button } from 'antd';
 import Login from './components/Login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
-
-import { AuthProvider } from './contexts';
+import Register from './components/Register';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 function App() {
   return (
-    <AuthProvider>
+    <Provider store={store}>
       <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+
       </Routes>
       </BrowserRouter>
-   </AuthProvider>
+      </Provider>
+  
 
   );
 }

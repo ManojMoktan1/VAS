@@ -1,18 +1,22 @@
-import { Button, Checkbox, Form, Input } from 'antd';
-import React, { useContext, useEffect } from "react";
+import { Button, Form, Input } from 'antd';
+import React from "react";
+import {useDispatch} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext, AuthInterface } from '../contexts';
+import { setIsUserLoggedIn } from '../reducers/authReducer';
 import './Login.css'
 
 const Login: React.FC = () => {
-  const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext) as AuthInterface;
+
+  const dispatch = useDispatch()
+
+  
   const navigate = useNavigate();
 
 
   
     const onFinish = (values: any) => {
       if( values.username === "manoj" && values.password === "hero") {
-        setIsLoggedIn (true);
+        dispatch(setIsUserLoggedIn(true));
         navigate("/")
         
       } else {
