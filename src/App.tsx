@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Register from './components/Register';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import AppointmentForm from './components/AppointmentForm';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-
+        <Route path='/appointment' element={<AppointmentForm />} />
       </Routes>
       </BrowserRouter>
       </Provider>
