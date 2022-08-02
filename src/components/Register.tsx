@@ -5,6 +5,7 @@ import {
     Select,
   } from 'antd';
   import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
   import './Login.css'
   
@@ -29,13 +30,14 @@ import {
       },
       sm: {
         span: 16,
-        offset: 8,
+        offset: 10,
       },
     },
   };
   
   const Register: React.FC = () => {
     const [form] = Form.useForm();
+    const navigate = useNavigate();
   
     const onFinish = (values: any) => {
       console.log('Received values of form: ', values);
@@ -116,7 +118,12 @@ import {
           <Button type="primary" htmlType="submit">
             Register
           </Button>
+          <div className='register-now'>
+          Have an account? <a href="" onClick={()=>{{navigate('/login')}}}> login here! </a>
+        </div>
+
         </Form.Item>
+
       </Form>
       </div>
       </div>

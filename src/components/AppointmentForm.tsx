@@ -6,7 +6,7 @@ import { setAppointment } from '../reducers/appointmentReducer';
 const { Option } = Select;
 
 const layout = {
-  labelCol: { span: 8 },
+  labelCol: { span: 10 },
   wrapperCol: { span: 16 },
 };
 
@@ -58,8 +58,7 @@ const AppointmentForm: React.FC = () => {
         </Input.Group>
       </Form.Item>
 
-      <Form.Item name="confirmationCode" labelCol={{ span: 10 }}
-      wrapperCol={{ span: 16 }}
+      <Form.Item name="confirmationCode" 
         label="Confirmation Code" rules={[{ type: 'number'}] } >
         <InputNumber style={{width: "100%"}} />
       </Form.Item>
