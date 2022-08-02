@@ -5,24 +5,16 @@ import {
   Input,
   Button,
   Radio,
-  Select,
-  Cascader,
   DatePicker,
-  InputNumber,
-  TreeSelect,
-  Switch,
-  Checkbox,
   Upload,
+
 } from 'antd';
 
 import './ClientPatientRegisterForm.css';
 
-const { Option } = Select;
 
-const { RangePicker } = DatePicker;
-const { TextArea } = Input;
 
-const ClientPatientRegisterForm = () => {
+const ManagerPatientCreateForm = () => {
   const [componentDisabled, setComponentDisabled] = useState<boolean>(false);
   const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
     setComponentDisabled(disabled);
@@ -32,11 +24,11 @@ const ClientPatientRegisterForm = () => {
     <div className='wrapper'>
     <div className='card'>
 
-    <h1 className= 'card__title'>PATIENT REGISTRATION FORM</h1>
+    <h1 className= 'card__title'>PATIENT CREATE FORM</h1>
 
       <Form
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 12 }}
+        labelCol={{ span: 6 }}
+        wrapperCol={{ span: 16 }}
         layout="horizontal"
         onValuesChange={onFormLayoutChange}
         disabled={componentDisabled}
@@ -151,16 +143,26 @@ const ClientPatientRegisterForm = () => {
         </Input.Group>
       </Form.Item>
 
+      <Form.Item label="Upload" valuePropName="fileList">
+          <Upload action="/upload.do" listType="picture-card">
+            <div>
+              <PlusOutlined />
+              <div style={{ marginTop: 8 }}>Upload</div>
+            </div>
+          </Upload>
+        </Form.Item>
+
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button className='btn-register' type="primary" htmlType="submit">
-          Register
+          Submit
         </Button>
       </Form.Item>
-        
+
+
       </Form>
       </div>
       </div>
   );
 };
 
-export default () => <ClientPatientRegisterForm />;
+export default () => <ManagerPatientCreateForm />;
