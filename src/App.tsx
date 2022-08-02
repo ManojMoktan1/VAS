@@ -11,6 +11,7 @@ import Register from './components/Register';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import AppointmentForm from './components/AppointmentForm';
+import ClientPatientRegisterForm from './components/ClientPatientRegisterForm';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/client-register' element={< ClientPatientRegisterForm/>} />
         <Route path='/appointment' element={<AppointmentForm />} />
       </Routes>
       </BrowserRouter>

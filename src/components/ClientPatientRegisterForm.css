@@ -1,0 +1,46 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Roboto Slab', serif;
+    background-color: #F0FFFF;
+    
+
+}
+
+label{
+    margin-right: 160px;
+    
+}
+
+.card{
+    width: 80%;
+    padding: 30px;
+    background-color: #ADD8E6;
+    box-shadow: 0 4px 8px 2px rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    
+    
+
+}
+
+.card__title{
+    color: #ffffff;
+    margin: 50px 0px;
+    text-shadow: 2px 2px #808080;
+    
+    
+
+}
+
+.btn-register{
+    margin-top: 20px;
+    box-shadow: 0 4px 4px 0px rgba(0,0,0,0.6);
+}
+
