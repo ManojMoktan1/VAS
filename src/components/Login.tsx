@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { setIsUserLoggedIn } from '../reducers/authReducer';
 import './Login.css'
@@ -10,17 +10,22 @@ const Login: React.FC = () => {
   const dispatch = useDispatch()
 
   
-  const navigate = useNavigate();
-
+  const navigate = useNavigate()
 
   
+  const isLoggedIn = useSelector((state:any) => state.auth.isUserLoggedIn )
+  
     const onFinish = (values: any) => {
-      if( values.username === "manoj" && values.password === "hero") {
-        dispatch(setIsUserLoggedIn(true));
+
+      if( values.username === "manoj" && values.password === "moktan") {
+        dispatch(setIsUserLoggedIn(true));      
         navigate("/")
         
-      } else {
-        console.log("wrong pass");
+      } else if(isLoggedIn === true){
+        navigate("/")
+      }
+      else {
+        navigate('/login')
         
       }
       };

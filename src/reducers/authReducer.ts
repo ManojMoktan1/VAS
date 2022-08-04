@@ -14,3 +14,4 @@ export const authSlice = createSlice({
 
 export const {setIsUserLoggedIn} = authSlice.actions;
 export default authSlice.reducer;
+
