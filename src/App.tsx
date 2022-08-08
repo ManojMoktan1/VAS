@@ -21,8 +21,7 @@ import AuthRoute from './components/AuthRoute';
 
 function App() {
   return (
-    <Provider store={store}>
-      
+    <Provider store={store}>   
       <BrowserRouter>
       <Routes>
           <Route element = {<AuthRoute />}>
