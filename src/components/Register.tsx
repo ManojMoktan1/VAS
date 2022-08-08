@@ -5,7 +5,7 @@ import {
     Select,
   } from 'antd';
   import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
   import './Login.css'
   
@@ -37,7 +37,6 @@ import { useNavigate } from 'react-router-dom';
   
   const Register: React.FC = () => {
     const [form] = Form.useForm();
-    const navigate = useNavigate();
   
     const onFinish = (values: any) => {
       console.log('Received values of form: ', values);
@@ -48,6 +47,7 @@ import { useNavigate } from 'react-router-dom';
     return (
         <div className='wrapper'>
         <div className='login-card register-card'>
+          <h1 className= 'login-card__title'>WELCOME TO VAS!</h1>
           <h1 className= 'login-card__title'>REGISTER HERE</h1>
       <Form
         {...formItemLayout}
@@ -119,7 +119,7 @@ import { useNavigate } from 'react-router-dom';
             Register
           </Button>
           <div className='register-now'>
-          Have an account? <a href="" onClick={()=>{{navigate('/login')}}}> login here! </a>
+          Have an account? <Link  to='/login'> login here! </Link>
         </div>
 
         </Form.Item>

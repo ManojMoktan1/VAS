@@ -17,7 +17,7 @@ const Login: React.FC = () => {
   
     const onFinish = (values: any) => {
 
-      if( values.username === "manoj" && values.password === "moktan") {
+      if( values.email === "manoj@gmail.com" && values.password === "moktan") {
         dispatch(setIsUserLoggedIn(true));      
         navigate("/")
         
@@ -47,10 +47,21 @@ const Login: React.FC = () => {
       onFinish={onFinish}
     >
       <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Please input your Username!' }]}
+        name="email"
+        
+        
+        rules={[
+          {
+            type: 'email',
+            message: 'The input is not valid E-mail!',
+          },
+          {
+            required: true,
+            message: 'Please input your E-mail!',
+          },
+        ]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" className='input-field' />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" className='input-field' data-testid="email-input" />
       </Form.Item>
       <Form.Item
         name="password"
@@ -61,6 +72,7 @@ const Login: React.FC = () => {
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
+          data-testid="password-input"
         />
       </Form.Item>
       <Form.Item>

@@ -1,7 +1,7 @@
-import { Button, Form, Input, InputNumber, Select } from 'antd';
+import { Button, Form, Input, InputNumber, Select, DatePicker } from 'antd';
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setAppointment } from '../reducers/appointmentReducer';
+// import { useDispatch } from 'react-redux';
+// import { setAppointment } from '../reducers/appointmentReducer';
 
 const { Option } = Select;
 
@@ -24,26 +24,23 @@ const validateMessages = {
 /* eslint-enable no-template-curly-in-string */
 
 const AppointmentForm: React.FC = () => {
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     
   const onFinish = (values: any) => {
-    dispatch(setAppointment(values));
+    // dispatch(setAppointment(values));
     console.log(values);
   };
 
   return (
     <div className='wrapper'>
     <div className='login-card'>
-      <h1 className= 'login-card__title'>Manager Appointment Form</h1>
+      <h1 className= 'login-card__title'>Book Appointment</h1>
     <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-      <Form.Item name="patientId" label="Patient Id" rules={[{ required: true }]}>
+      {/* <Form.Item name="patientId" label="Patient Id" rules={[{ required: true }]}>
         <Input />
-      </Form.Item>
-      <Form.Item name="siteLocation" label="Site Location" >
-        <Input />
-      </Form.Item>
+      </Form.Item> */}
 
-      <Form.Item label="Service Type">
+<Form.Item label="Service Name">
         <Input.Group compact>
           <Form.Item
             name="serviceType"
@@ -58,10 +55,19 @@ const AppointmentForm: React.FC = () => {
         </Input.Group>
       </Form.Item>
 
-      <Form.Item name="confirmationCode" 
+      <Form.Item name="siteLocation" label="Site Location" >
+        <Input />
+      </Form.Item>
+
+      <Form.Item name="appointmentDate" label="Appointment Date">
+          <DatePicker />
+        </Form.Item>
+
+
+      {/* <Form.Item name="confirmationCode" 
         label="Confirmation Code" rules={[{ type: 'number'}] } >
         <InputNumber style={{width: "100%"}} />
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
